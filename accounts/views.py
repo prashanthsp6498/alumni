@@ -65,6 +65,7 @@ def logout_request(request):
     messages.info(request, "Logged out successfully")
     return redirect("/")
 
+
 @login_required
 def profile(request):
     if request.method == "POST":
@@ -119,4 +120,3 @@ def job_view(request):
 
 def forgot_pass(request):
     return render(request, "accounts/password_reset.html")
-

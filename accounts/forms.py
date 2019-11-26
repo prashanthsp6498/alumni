@@ -28,10 +28,12 @@ class UserDetails(forms.ModelForm):
         self.fields['li_link'].label = "LinkedIn"
         self.fields['li_link'].required = False
 
+
 class UserProfile(forms.ModelForm):
     class Meta:
         model = AlumniProfile
         fields = ['profile_img']
+
 
 class JobUpdate(ModelForm):
     class Meta:

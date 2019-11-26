@@ -1,5 +1,4 @@
 from django.db import models
-# from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
@@ -51,8 +50,8 @@ class Account(AbstractBaseUser):
     profile_img = models.ImageField(upload_to='profile_image/', default="profile_image/default_img.png")
     insta_link = models.URLField(max_length=250, null=True)
     facebook_link = models.URLField(max_length=250, null=True)
-    pf_link= models.URLField(max_length=250, null=True)
-    li_link= models.URLField(max_length=250, null=True)
+    pf_link = models.URLField(max_length=250, null=True)
+    li_link = models.URLField(max_length=250, null=True)
     github_link = models.URLField(max_length=250, null=True)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
@@ -79,11 +78,9 @@ class Account(AbstractBaseUser):
         return True
 
 
-
 class AlumniProfile(models.Model):
     user = models.OneToOneField(Account, on_delete=models.CASCADE)
     profile_img = models.ImageField(upload_to='profile_image/', default="profile_image/default_img.png")
-
 
     def __str__(self):
         return self.user.email
@@ -104,7 +101,6 @@ class JobOpenings(models.Model):
 
 class BestAlumnis(models.Model):
     user = models.OneToOneField(Account, on_delete=models.CASCADE)
-
 
     def __str__(self):
         return self.user.name() + " From Dept " + self.user.dept.dept_name
