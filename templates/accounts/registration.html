@@ -1,0 +1,21 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block registration_page %}
+
+<div class="container">
+	<small style="color: red">Username means USN </small>
+    <form method="POST">
+    	<div class="form-group">
+    {% csrf_token %}
+   
+    {{ form|crispy}}
+    </div>
+     <button type="submit" class="btn btn-primary">Submit</button>
+    </form><br/><br/>
+    
+
+</div>
+
+
+{% endblock %}

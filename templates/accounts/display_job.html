@@ -1,0 +1,27 @@
+{% extends "accounts/base.html"%}
+
+{% block profile_page %}
+
+<div class="container-fluid">
+{% if jobs %}
+{% for job in jobs %}
+<div class="card" style="margin-top: 20px; width: 70%">
+  <div class="card-header">
+    {{ job.company}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Role : {{ job.job_title }}</h5>
+    <p class="card-text">Description :<br/> {{ job.description }}</p>
+    <p class="card-text">Salary : {{ job.salary }}</p>
+    <p class="card-text">Contact : {{ job.hr_email }}</p>
+    <p class="card-text">Posted On : {{ job.posted_date }}</p>
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+  </div>
+</div>
+
+{% endfor %}
+{% else %}
+<h2>No Jobs Available</h2>
+{% endif %}
+</div>
+{% endblock %}

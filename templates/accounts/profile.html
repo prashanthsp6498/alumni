@@ -1,0 +1,89 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block index_page %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img style="height:180px; width:170px;margin-left:30px;margin-top:5px" src="{{ user_details.profile_img.url }}" class="rounded mx-auto d-block" alt="Profile Picture">
+                <div class="card-body">
+                    <h5 style="text-align:center" class="card-title">{{ user_details.name}}</h5>
+                    <h5 style="color:grey;text-align:center" class="card-title">{{ user_details.designation}}</h5>
+                    <h5 style="color:grey;text-align:center" class="card-title">{{ user_details.pass_out_batch}}</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="{{ user_details.facebook_link }}" target="_blank" class="btn btn-block btn-social btn-facebook">
+                                <span class="fa fa-facebook"></span> 
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{{ user_details.github_link }}" target="_blank" class="btn btn-block btn-social btn-github">
+                                <span class="fa fa-github"></span> 
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{{ user_details.insta_link}}" target="_blank" class="btn btn-block btn-social btn-github">
+                                <span class="fa fa-instagram"></span> 
+                            </a>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="width:100%">Portfolio</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <form method="POST" enctype="multipart/form-data" >
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ details | crispy}}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form><br/><br/>
+
+
+
+            
+        </div>
+    </div>
+    <div class="row" style="background-color:black">
+        <h4 style="text-align:center; color:white">Your Fellows</h4><br/>
+    </div>
+    <div class="row">
+        {% for person in fellows %}
+        <div class="col-md-3" style="margin-top:10px">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ person.profile_img.url }}" style="margin-top:5px;margin-left:50px;width:170px; height:190px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center">{{ person.name }}</h5>
+                    <p class="card-text" style="text-align:center">{{ person.designation }}</p>
+                    <div class="row" style="margin-left:40px">
+                    <div class="col-md-2">
+                        <a href="{{ person.facebook_link }}" target="_blank" class="btn btn-block btn-social btn-facebook">
+                            <span class="fa fa-facebook"></span> 
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ person.insta_link}}" target="_blank" class="btn btn-block btn-social btn-facebook">
+                            <span class="fa fa-instagram"></span> 
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ person.li_link}}" target="_blank" class="btn btn-block btn-social btn-facebook">
+                            <span class="fa fa-linkedin"></span> 
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

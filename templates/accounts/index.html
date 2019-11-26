@@ -1,0 +1,170 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block index_page %}
+
+<div id="fw_al_001" class="carousel slide ps_slide_y ps_indicators_y swipe_y ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2500">
+
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#fw_al_001" data-slide-to="0" class="active"></li>
+			<li data-target="#fw_al_001" data-slide-to="1"></li>
+			<li data-target="#fw_al_001" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper For Slides -->
+		<div class="carousel-inner" role="listbox">
+
+			<!-- First Slide -->
+            
+			<div class="carousel-item active">
+
+
+				<!-- Slide Background -->
+                <img src="{{ img1 }}" alt="fw_al_001_01">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp"></h3>
+					<h1 data-animation="animated fadeInUp"></h1>
+					<p data-animation="animated fadeInUp"></p>
+                    <!--<a href="#" data-animation="animated fadeInUp">iewx donecti</a>-->
+				</div>
+
+			</div>
+			<!-- End of Slide -->
+            
+
+			<!-- Second Slide -->
+			<div class="carousel-item">
+
+				<!-- Slide Background -->
+                <img src="{{ img2 }}" alt="fw_al_001_02">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp"></h3>
+					<h3 data-animation="animated fadeInUp"></h3>
+					<h1 data-animation="animated fadeInUp"></h1>
+					<p data-animation="animated fadeInUp"></p>
+                    <!--<a href="#" data-animation="animated fadeInUp">quamr rutrumt</a>-->
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+			<!-- Third Slide -->
+			<div class="carousel-item">
+
+				<!-- Slide Background -->
+                <img src="{{ img3 }}" alt="fw_al_001_03">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp"></h3>
+					<h1 data-animation="animated fadeInUp"></h1>
+					<p data-animation="animated fadeInUp"></p>
+					<p data-animation="animated fadeInUp"></p>
+                    <!--<a href="#" data-animation="animated fadeInUp">felis zw</a>-->
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+		</div><!-- End of Wrapper For Slides -->
+
+	</div> <!-- End Paradise Slider -->
+
+	
+
+
+ <!-- End -->
+    <div>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
+    <div class="team-boxed"><div class="container">
+    <div class="intro">
+        <h2 class="text-center">DISTINGUISHED ALUMNI AWARD 2019</h2>
+    </div>
+    <div class="row">
+        {% for person in alumnis %}
+        
+            <div class="col-md-4 col-lg-3 item">
+                <div class="box" style="max-height:400px">
+                    <img class="rounded-circle" src="{{person.user.profile_img.url }}" style="min-height:200px"/>
+                <h6 class="name">{{ person.user.name }}</h6>
+                <p class="title">{{ person.user.designation }}</p>
+                <div class="social">
+                    <a href="{{ person.user.facebook_link }}" target="_blank"><i class="fa fa-facebook-official"></i></a>
+                    <a href="{{ person.user.insta_link }}"><i class="fa fa-instagram"></i></a>
+                    <a href="{{ person.user.li_link }}"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+        
+    
+    <!--
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="serviceBox yellow">
+                <div class="service-icon"><a href="#"><i class="fa fa-globe"></i></a></div>
+                <div class="service-content">
+                    <h3>Web Development</h3>
+                    <hr />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi risus, condimentum et orci quis, gravida maximus mauris. Praesent varius dolor eget ligula gravida mollis. Praesent ac. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="serviceBox green">
+                <div class="service-icon"><a href="#"><i class="fa fa-globe"></i></a></div>
+                <div class="service-content">
+                    <h3>Web Development</h3>
+                    <hr />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi risus, condimentum et orci quis, gravida maximus mauris. Praesent varius dolor eget ligula gravida mollis. Praesent ac. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="serviceBox pink">
+                <div class="service-icon"><a href="#"><i class="fa fa-globe"></i></a></div>
+                <div class="service-content">
+                    <h3>Web Development</h3>
+                    <hr />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi risus, condimentum et orci quis, gravida maximus mauris. Praesent varius dolor eget ligula gravida mollis. Praesent ac. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    </div>
+
+
+{% endblock %}
