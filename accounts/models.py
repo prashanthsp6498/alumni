@@ -106,6 +106,18 @@ class BestAlumnis(models.Model):
         return self.user.name() + " From Dept " + self.user.dept.dept_name
 
 
+class Events(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(null=False)
+    posted_date = models.DateTimeField(auto_now_add=True)
+    event_date = models.DateField()
+    hosted_dept = models.ForeignKey(Department, on_delete=models.CASCADE, null=True)
+
+
+    def __str__(self):
+        return self.name + " by " + self.hosted_dept.dept_name
+
+
 def create_profile(sender, **kwargs):
     if kwargs['created']:
         user_profile = Account.objects.create(user=kwargs['instance'])

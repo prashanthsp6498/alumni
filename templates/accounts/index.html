@@ -129,6 +129,23 @@
     {% endfor %}
     </div>
         
+    <div class="row">
+    {% for event in events %}
+        <div class="col-sm-4 col-md-4">
+            <div class="serviceBox yellow">
+                <div class="service-icon"><a href="#"><i class="fa fa-globe"></i></a></div>
+                <div class="service-content">
+                    <h3><strong>{{ event.name }}</strong></h3>
+                    <hr />
+                    <p> {{ event.description }}</p>
+                    <p> Event Date: {{ event.event_date }}</p>
+                    <p> Hosted By: {{ event.hosted_dept }}</p>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
     
     <!--
     <div class="row">

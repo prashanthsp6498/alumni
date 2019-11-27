@@ -12,5 +12,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('fgt_pass/', views.forgot_pass, name='forgot_pass'),
     path('job_post/', views.job_post, name="job_post"),
-    path('view_jobs/', views.job_view, name="job_view")
+    path('view_jobs/', views.job_view, name="job_view"),
+    path('events/', views.events, name="events"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

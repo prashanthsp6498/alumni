@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import Registration
-from .models import AlumniProfile, ImageSlider, JobOpenings, Account
+from .models import AlumniProfile, ImageSlider, JobOpenings, Account, Events
 from .forms import JobUpdate, UserDetails, UserProfile
 from .models import Account as User, BestAlumnis
 from django.contrib.auth.decorators import login_required
@@ -15,10 +15,12 @@ def index(request):
     img1 = sliders[0].event_image.url
     img2 = sliders[1].event_image.url
     img3 = sliders[2].event_image.url
+    events = list(Events.objects.filter())[-3:]
     return render(request, 'accounts/index.html', {"img1": img1,
                                                    "img2": img2,
                                                    "img3": img3,
                                                    "alumnis": best_alumnis,
+                                                   "events": events,
                                                    })
 
 
@@ -120,3 +122,8 @@ def job_view(request):
 
 def forgot_pass(request):
     return render(request, "accounts/password_reset.html")
+
+
+def events(request):
+    events = list(Events.objects.filter())[::-1]
+    return render(request, "accounts/events.html", {"events": events})
