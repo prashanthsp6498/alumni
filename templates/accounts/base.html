@@ -38,10 +38,9 @@
                     <li class="nav-item active" role="presentation"><a class="nav-link " href="{% url 'index' %}">Home</a></li>
                     <li class="nav-item active" role="presentation"><a class="nav-link " href="{% url 'job_view' %}">Jobs</a></li>
                     <li class="nav-item active" role="presentation"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item active" role="presentation"><a class="nav-link" href="#">Events</a></li>
-                    <li class="nav-item active" role="presentation"><a class="nav-link" href="#">Alumni Views</a></li>
+                    <li class="nav-item active" role="presentation"><a class="nav-link" href="{% url 'events' %}">Events</a></li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item active" role="presentation"><a class="nav-link" href="{% url 'profile' %}"><strong>{{user}}</strong></a></li>
+                    <li class="nav-item active" role="presentation"><a class="nav-link" href="{% url 'profile' %}"><strong>{{user.name}}</strong></a></li>
                     <li class="nav-item active" role="presentation"><a class="nav-link" href="{% url 'job_post' %}"><strong>Help Juniors</strong></a></li>
                         <li class="nav-item active" role="presentation"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
