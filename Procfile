@@ -1,1 +1,1 @@
-web: alumni.wsgi
+web: gunicorn alumni.wsgi
