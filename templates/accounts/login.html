@@ -35,11 +35,17 @@
             {% endfor %}
         <div class="submit-row" style="margin-bottom:8px;padding-top:0px;"><button class="btn btn-primary btn-block box-shadow" id="submit-id-submit" type="submit">Login</button>
         </div>
+    {% if message %}
+            {{ message }}
+
+    {% endif %}
+
         <div id="login-box-footer" style="padding:10px 20px;padding-bottom:23px;padding-top:18px;">
-            <p style="margin-bottom:0px;"><a id="register-link" href="{% url 'forgot_pass' %}">forgot Password</a></p>
+            <p style="margin-bottom:0px;"><a id="register-link" href="{% url 'password_reset' %}">forgot Password</a></p>
             <p style="margin-bottom:0px;">Don't you have an account?<a id="register-link" href="{% url 'register' %}">Register!</a></p>
         </div>
         </form>
     </div>
 
+</div>
 {% endblock %}

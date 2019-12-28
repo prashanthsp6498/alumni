@@ -29,7 +29,9 @@
                                 <span class="fa fa-instagram"></span> 
                             </a>
                         </div>
-                        <a href="#" class="btn btn-primary" style="width:100%">Portfolio</a>
+                        {% if user_details.pf_link %}
+                        <a href="{{ user_details.pf_link }}" class="btn btn-primary" style="width:100%">Portfolio</a>
+                        {% endif %}
                     </div>
                 </div>
 

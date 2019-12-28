@@ -25,6 +25,7 @@ def index(request):
 
 
 def signin(request):
+    message = ""
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -36,10 +37,11 @@ def signin(request):
                 messages.info(request, "Login Successfull")
                 return redirect('/')
             else:
+                message = "invalid email or password"
                 messages.error(request, "Invalid Username or Password")
     else:
         form = AuthenticationForm()
-    return render(request, "accounts/login.html", {"form": form})
+    return render(request, "accounts/login.html", {"form": form, "message": message})
 
 
 def register(request):
