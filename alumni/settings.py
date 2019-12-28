@@ -20,12 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6szr3i^hz=amu6sy3m0d_+1-f3i)fkt_#4&^0i+6e(cz&%-*%k'
+# SECRET_KEY = '6szr3i^hz=amu6sy3m0d_+1-f3i)fkt_#4&^0i+6e(cz&%-*%k'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mitt-alumni.herokuapp.com']
 
 
 # Application definition
@@ -151,5 +152,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "prashanthsp6498@gmail.com"
-EMAIL_HOST_PASSWORD = '<Prashanthsp@20>' 
+EMAIL_HOST_USER = os.environ['EMAIL'] 
+EMAIL_HOST_PASSWORD = os.environ['PASSWD'] 
